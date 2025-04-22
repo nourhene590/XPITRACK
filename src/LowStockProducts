@@ -1,0 +1,30 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+const LowStockProducts = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/products/low-stock")
+      .then((response) => setProducts(response.data.data))
+      .catch((err) => console.error("Error fetching low stock products", err));
+  }, []);
+
+  return (
+    <div>
+      <h3>Low Stock Products</h3>
+      <ul>
+        {products.map((product) => (
+          <li key={product._id}>
+            <h4>{product.name}</h4>
+            <p>Category: {product.category}</p>
+            <p>Quantity: {product.quantity}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default LowStockProducts;

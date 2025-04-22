@@ -1,0 +1,141 @@
+/* Container Styling */
+.table-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+/* Table Basics */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 15px;
+  color: #333;
+}
+
+.table thead {
+  background-color: #f5f7fa;
+}
+
+.table thead th {
+  padding: 14px 18px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6c757d;
+  border-bottom: 2px solid #e1e5ea;
+}
+
+.table tbody tr {
+  transition: background-color 0.25s ease-in-out;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.table tbody td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Status Badge Styles */
+.status {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 110px;
+  transition: all 0.3s ease-in-out;
+}
+
+.status.near {
+  background-color: #fff4e5;
+  color: #d88a00;
+  border: 1px solid #ffc107;
+}
+
+.status.in-stock {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  border: 1px solid #66bb6a;
+}
+
+.status.out-of-stock {
+  background-color: #fcebea;
+  color: #c62828;
+  border: 1px solid #e57373;
+}
+
+/* Responsive Alert */
+.alert {
+  margin-top: 20px;
+  padding: 14px 20px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Back Link */
+.back-link {
+  margin-top: 10px;
+  color: #007bff;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tbody tr {
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .table td {
+    padding: 10px 16px;
+    text-align: right;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+  }
+}
